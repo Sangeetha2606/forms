@@ -1,0 +1,43 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" >
+    
+   
+    <p> 
+        <label for="firstname">FirstName:</label>
+        <input type="text" id="firstname" name="firstname" formControlName="firstname" ></p>
+   
+        <div
+        *ngIf="!contactForm.controls.firstname?.valid && (contactForm.controls.firstname?.dirty
+        ||contactForm.controls.firstname?.touched)" class="text-danger">
+        <div *ngIf="contactForm.controls.firstname?.errors.required">Please Enter Your Firstname</div>
+        <div *ngIf="contactForm.controls.firstname?.errors.minlength">Firstaname should have atleast 6 characters</div>
+        
+          
+      </div>
+     
+    <p> LastName:<input type="text" name="lastname" formControlName="lastname"  ></p>
+    <div *ngIf="!lastname?.valid && (lastname?.dirty || lastname?.touched)">
+        <div [hidden]="!lastname.errors.required"class="text-danger">
+            Lastname cannot be empty
+        </div>
+        <div [hidden]="!lastname.errors.minlength" class="text-danger">
+         
+            Lastname should contain atleast 6 letters.
+        </div>
+    </div>
+    <p> Password:<input type="password" name="password" formControlName="password"  ></p>
+    <div *ngIf="!password?.valid &&(password?.dirty || password?.touched)"class="text-danger">
+        Password Required
+    </div>
+    <p> ConfirmPassword:<input type="password" name="confirmpassword" formControlName="confirmpassword"  ></p>
+ <div *ngIf="!confirmpassword?.valid &&( confirmpassword?.dirty || confirmpassword?.touched)" class="text-danger">
+     ConfirmPassword Required.
+ </div>
+    <p> PhoneNumber:<input type="text" name="phonenumber" formControlName="phonenumber"/></p>
+   
+    <p> Age:<input type="age" name="age" formControlName="age"  ></p>
+ 
+   
+    <p>isAdmin:<input type="checkbox" name="isAdmin" formControlName="isAdmin"  ></p>
+    <p><input type="button" value="submit" (click)="submit(contactForm)" [disabled]="!contactForm.valid"/></p>
+ </form>
+ 

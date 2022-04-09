@@ -1,0 +1,95 @@
+<!--<input type="age" [(ngModel)]="age"> {{ age| custom}}-->
+<div class="container">
+<div class="box" style="border:1px solid blue">
+
+<h3 style="text-align:center; background-color: blue;color:beige">CONTACTUS FORM  (TEMPLATEDRIVEN FORMS)</h3>
+<br>
+<br>
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+    <div class="container">
+    <div class="row">
+        <div class="col">
+    <p>
+    <label for="firstname">FirstName:</label>
+    <input type="text" name="firstname" class="form-control" minlength="6"  maxlength="9" required #firstname="ngModel" [(ngModel)]="contact.firstname">
+   </p> 
+
+   <div *ngIf="!firstname?.valid && (firstname?.dirty || firstname?.touched)" class="text-danger">
+   
+    <div *ngIf="firstname?.errors?.required">
+        Please fillout the Firstname field.
+    </div>
+    <div *ngIf="firstname?.errors?.minlength">
+        Firstname should have atleast 6 characters
+    </div>
+    
+   
+  </div>
+</div>
+<div class="col">
+   <p>
+    <label for="lastname">LastName:</label>
+    <input type="text" name="lastname"  class="form-control" minlength="6" required #lastname="ngModel" [(ngModel)]="contact.lastname">
+</p> 
+
+<div *ngIf="!lastname?.valid && (lastname?.dirty || lastname?.touched)" class="text-danger">
+   
+    <div *ngIf="lastname?.errors?.required">
+        Please fillout the Lastname field.
+    </div>
+    <div *ngIf="lastname?.errors?.minlength">
+        Lastname should have atleast 6 characters
+    </div>
+    
+   
+  </div>
+</div>
+</div>
+    <p>
+    <label for="email">Email:</label>
+    <input type="email" name="email"  class="form-control" minlength="10" #email="ngModel"  required email [(ngModel)]="contact.email">
+    </p> 
+    <div *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="text-danger">
+        <div *ngIf="email?.errors?.required">
+            Please enter MailId.
+        </div>
+          
+    </div>
+    <p>
+    <label for="phonenumber">PhoneNumber:</label>
+    <input type="text" name="phonenumber"  #phonenumber="ngModel" minlength="10" maxlength="10" required class="form-control" [(ngModel)]="contact.phonenumber">
+    </p> 
+    <div *ngIf="!phonenumber?.valid &&(phonenumber?.dirty || phonenumber?.touched)" class="text-danger">
+        <div *ngIf="phonenumber?.errors?.required">
+            Please enter phonenumber.
+        </div>
+           <div *ngIf="phonenumber?.errors?.minlength">
+            phonenumber should have atleast 10 characters
+        </div>
+    </div>
+    <p>
+        <label for="country">Country:</label>
+        <select name="country"  class="form-control" >
+            <option [ngValue]="c.id" *ngFor="let c of countryList">{{c.name}}</option>
+            </select>
+        </p> 
+    <p>
+    <label for="textarea">Message:</label>
+    <textarea type="text" name="textarea"  class="form-control" required minlength="20" #textarea="ngModel" [(ngModel)]="contact.textarea"></textarea>
+    </p> 
+    <div *ngIf="textarea.errors?.minlength" class="text-danger">
+      Message should have atleast 20 characters
+    </div>
+    <p>
+    <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">Submit</button>
+    <button type="submit" class="btn btn-primary" (click)="setValue()">Default</button>
+    </p> 
+</div>
+</form>
+</div>
+</div>
+<pre>Value: {{contactForm.value | json}}</pre>
+<pre>Valid: {{contactForm.valid }}</pre>
+<pre>Dirty: {{contactForm.dirty}}</pre>
+<pre>Touched: {{contactForm.touched}}</pre>
+<pre>Submitted: {{contactForm.submitted }}</pre>

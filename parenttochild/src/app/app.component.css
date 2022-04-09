@@ -1,0 +1,13 @@
+ul li{
+    display: inline-block;
+    padding:20px;
+}
+li a{
+    text-decoration: none;
+}
+a.active{
+    background-color: blue;
+    color:white;
+    padding: 15px;
+
+}

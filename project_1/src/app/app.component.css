@@ -1,0 +1,28 @@
+ul li{
+    display:inline-block;
+    padding:20px;
+}
+nav {
+    background-color: yellow;
+}
+li a{
+     text-decoration: none;
+} 
+li a:hover{
+    background-color: rgb(231, 151, 31);
+    padding:20px;
+}
+a.active{
+    background-color: orange;
+    padding:15px;
+}
+.red{
+    color:red;
+}
+.blue{
+    color:blue;
+}
+.right{
+    float:right;
+}
+

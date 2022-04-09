@@ -1,0 +1,7 @@
+<div class="parent"><p>Parent Component</p>
+<app-child [childMessage]="message1"></app-child>
+<br>
+{{message}}
+<app-child (messageEvent)="receiveMessage($event)"></app-child>
+{{msgFromChild}}
+</div>

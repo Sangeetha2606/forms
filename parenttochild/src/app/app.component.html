@@ -1,0 +1,17 @@
+
+
+
+<nav>
+
+
+  <ul>
+    <li><a routerLink="/parent" routerLinkActive="active">Parent</a></li>
+    <li><a routerLink="/child" routerLinkActive="active">Child</a></li>
+  </ul>
+  <input  type="text" [(ngModel)]="name" (keyup)="getValue()"/>
+ <!--SendDatafromParent:<input type="text" [(ngModel)]="data1">
+  <input type="button"value="send" (click)="transformData()"/>
+  <div>{{data}}</div>
+  <app-child [newdata]="data"></app-child>   example for parenttochild   -->
+<app-child [childMessage]="name"></app-child>
+<router-outlet></router-outlet>

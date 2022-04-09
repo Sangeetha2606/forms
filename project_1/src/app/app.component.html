@@ -1,0 +1,37 @@
+<div class="test" [ngClass]="colorText">{{welcomeMessage}}</div>
+<div class="test" [ngClass]="showElement ===true ? 'red' : ''">{{welcomeMessage}}</div>
+
+<button (click)="newMessage()">New Message</button>
+<button (click)="changeColor('red')">Red</button>
+<button (click)="changeColor('blue')">Blue</button>
+<nav>
+    <ul>
+        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/aboutus" routerLinkActive="active">Aboutus</a></li>
+        <li><a routerLink="/contactus" routerLinkActive="active">Contactus</a></li>
+        <li class="right"><a  routerLink="/login" routerLinkActive="active" >Login</a></li>
+        <li  class="right"><a routerLink="/createaccount" routerLinkActive="active">Createaccount</a></li>
+    </ul>
+</nav>
+<router-outlet></router-outlet>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<div [ngStyle]="{'color':'red','font-size.px':40,'font-weight':'bold'}">Attribute Directives-ngStyle</div>
+
+
+<div [innerHTML]="title"></div>
+<br>
+<br>
+<div [innerHTML]="title2"></div>
+<input type="text" [(ngModel)]="name" (keyup)="getValue($event)"/><br>
+<h2>  {{name}}</h2>
+
+

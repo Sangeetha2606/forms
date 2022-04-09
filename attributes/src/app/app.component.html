@@ -1,0 +1,74 @@
+<br>
+<br>
+
+<div style="text-align: center;">
+<button appToggle type="button">Submit</button>
+<input type="text" appToggle>
+
+</div>
+<h3 style="color:blue">Custom Pipes</h3>
+<div><b>Today's Date:</b>{{date | date: "dd/MM/YYYY"}}</div>
+<div><b>Percentage:</b>{{number | percent:'3.2-2'}}</div>
+<div><b>Uppercase:</b>{{text | uppercase}}</div>
+<div><b>Lowercase:</b>{{text | lowercase}}</div>
+<div><b>Slice:</b>{{slice | slice: 1:4}}</div>
+<div><b>Currency:</b>{{digit | currency}}</div>
+<div><b>IndCurrency:</b>{{digit | currency:'INR'}}</div>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h4>Checking eligible or not using pipes</h4>
+    </div>
+    <div class="card-body">
+      <input type="number" [(ngModel)]="number1"> {{number1 |custom}}
+    </div>
+  </div>
+</div>
+
+<br> 
+<br>
+
+<br>
+<table class="table table-striped ">
+  <thead>
+    <tr>
+  <th>Firstname</th>
+      <th>Lastname</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let b of users">
+       <td *ngIf="(b.age>=18);">{{b.fname}}</td>
+      
+       <td *ngIf="(b.age>=18);">{{b.lname}}</td>
+      <td  *ngIf="(b.age>=18);else showText">{{b.age}}</td>
+      
+      </tr>
+<ng-template #showText>
+  none  is above18
+</ng-template>
+
+  </tbody>
+</table>
+<table class="table table-striped ">
+  <thead>
+    <tr>
+  <th>Firstname</th>
+      <th>Lastanme</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let a of userList">
+       <td *ngIf="(a.age>=18);">{{a.fname}}</td>
+      
+       <td *ngIf="(a.age>=18);">{{a.lname}}</td>
+      <td  *ngIf="(a.age>=18);else showMessage">{{a.age}}</td>
+      </tr>
+<ng-template #showMessage>
+  none  is above18
+</ng-template>
+
+  </tbody>
+</table>
